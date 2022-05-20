@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <title>New Cars</title>
+    <div class="wrapper">
+        <div class="content-wrapper">
+            <div class="wr">
+                <div class="wra">
+                <h1>Used Cars</h1>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+</head>
+<body>
+    <div class="main-container">
+        <div class="titleN">
+            <p class="title-name">Ad Title : </p>
+            <h3 class="car-titleN">{{Usedcar.ad_title}} </h3>
+        </div><br><br><br>
+        <div class="imgN">
+            <p class="img-name">Image : </p>
+            <img class="carimgN" src="{{Usedcar.image.url}}" alt="New car image">
+        </div><br>
+        <div class="priceN">
+            <p class="price-name">Price : </p>
+            <p class="car-price">{{Usedcar.price}} EGP</p>
+        </div><br>
+        <div class="kmN">
+            <p class="km-name">Travelled KM : </p>
+            <p class="car-KM">{{Usedcar.travelled_KM}} KM</p>
+        </div><br>
+        <div class="describeN">
+            <p class="describe-name">Describtion : </p>
+            <p class="car-describtion">{{Usedcar.Describtion}}</p>
+        </div><br>
+        <div class="brandN">
+            <p class="brand-name">Brand : </p>
+            <p class="car-brand">{{Usedcar.brand}}</p>
+        </div><br> 
+        <div class="typeN">
+            <p class="type-name">Type : </p>
+            <p class="car-type">{{Usedcar.type}}</p>
+        </div><br>
+        <div class="modelyearN">
+            <p class="modelyear-name">Model year : </p>
+            <p class="car-model_year">{{Usedcar.model_year}}</p>
+        </div><br>
+        <div class="usedsinceN">
+            <p class="usedsince-name">Used since : </p>
+            <p class="car-used_since">{{Usedcar.used_since}}</p>
+        </div><br>
+        <div class="transmissionN">
+            <p class="transmission-name">Transmission Type : </p>
+            <p class="car-transmission_type">{{Usedcar.transmission_type}}</p>
+        </div><br>
+        <div class="colorN">
+            <p class="color-name">Color : </p>
+            <p class="car-color">{{Usedcar.color}}</p>
+        </div><br>
+        <div class="CCN">
+            <p class="CC-name">CC : </p>
+            <p class="car-CC">{{Usedcar.CC}} CC</p>
+        </div><br>
+        <div class="fuelN">
+            <p class="fuel-name">Fuel : </p>
+            <p class="car-fuel">{{Usedcar.fuel}}</p>
+        </div><br>
+        {% if Usedcar.extra_equipment %}
+            <div class="equipmentN">
+                <p class="equipment-name">Extra equipment : </p>
+                <p class="car-extra_equipment">{{Usedcar.extra_equipment}}</p>
+            </div><br>
+        {% endif %}
+        <div class="ownerN">
+            <p class="owner-name">Owner name : </p>
+            <p class="car-ownername">{{Usedcar.owner_name}}</p>
+        </div><br>
+        <div class="phoneN">
+            <p class="phone-name">Owner phone number : </p>
+            <p class="car-ownerphonenumber">{{Usedcar.owner_phonenumber}}</p>
+        </div><br>
+        <div class="addressN">
+            <p class="address-name">Address : </p>
+            <p class="car-address">{{Usedcar.address}}</p>
+        </div><br>
+        <div class="dateN">
+            <p class="date-name">Created date : </p>
+            <p class="car-createddate">{{Usedcar.createddate}}</p>
+        </div><br>
+    </div><br><br><br><br>
+</body>
+{% endblock content %}

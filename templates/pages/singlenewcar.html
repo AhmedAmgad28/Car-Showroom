@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <title>New Cars</title>
+    <div class="wrapper">
+        <div class="content-wrapper">
+            <div class="wr">
+                <div class="wra">
+                <h1>New Cars</h1>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+</head>
+<body>
+    <div class="main-container">
+        <div class="titleN">
+            <div class="title-name">Ad Title : </div>
+            <div class="car-titleN">{{Newcar.ad_title}} </div>
+        </div><br><br><br>
+        <div class="imgN">
+            <div class="image-name">Image : </div>
+            <img class="carimgN" src="{{Newcar.image.url}}" alt="New car image">
+        </div><br>
+        <div class="priceN">
+            <div class="price-name">Price : </div>
+            <div class="car-price">{{Newcar.price}} EGP</div>
+        </div><br>
+        <div class="describeN">
+            <div class="describe-name">Describtion : </div>
+            <div class="car-describtion">{{Newcar.Describtion}}</div>
+        </div><br>
+        <div class="brandN">
+            <div class="brand-name">Brand : </div>
+            <div class="car-brand">{{Newcar.brand}}</div>
+        </div><br>
+        <div class="typeN">
+            <div class="type-name">Type : </div>
+            <div class="car-type">{{Newcar.type}}</div>
+        </div><br>
+        <div class="modelyearN">
+            <div class="modelyear-name">Model year : </div>
+            <div class="car-model_year">{{Newcar.model_year}}</div>
+        </div><br>
+        <div class="transmissionN">
+            <div class="transmission-name">Transmission type : </div>
+            <div class="car-transmission_type">{{Newcar.transmission_type}}</div>
+        </div><br>
+        <div class="colorN">
+            <div class="color-name">Color : </div>
+            <div class="car-color">{{Newcar.color}}</div>
+        </div><br>
+        <div class="CCN">
+            <div class="CC-name">CC : </div>
+            <div class="car-CC">{{Newcar.CC}} CC</div>
+        </div><br>
+        <div class="fuelN">
+            <div class="fuel-name">Fuel : </div>
+            <div class="car-fuel">{{Newcar.fuel}}</div>
+        </div><br>
+        <div class="dateN">
+            <div class="date-name">Created date : </div>
+            <div class="car-createddate">{{Newcar.createddate}}</div>
+        </div><br> 
+    </div><br><br><br><br>
+</body>
+{% endblock content %}

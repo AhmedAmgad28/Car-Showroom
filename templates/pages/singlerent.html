@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <title>Rent a Car</title>
+    <div class="wrapper">
+        <div class="content-wrapper">
+            <div class="wr">
+                <div class="wra">
+                <h1>Rent Cars</h1>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+</head>
+<body>
+    <div class="main-container">
+        <div class="titleN">
+            <p class="title-name">Ad Title : </p>
+            <h3 class="car-titleN">{{Rentcar.ad_title}} </h3>
+        </div><br><br><br>
+        <div class="imgN">
+            <p class="img-name">Image : </p>
+            <img class="carimgN" src="{{Rentcar.image.url}}" alt="New car image">
+        </div><br>
+        <div class="priceN">
+            <p class="price-name">Price : </p>
+            <p class="rental-price">{{Rentcar.price}} EGP per Day</p>
+        </div><br>
+        <div class="describeN">
+            <p class="describe-name">Describtion : </p>
+            <p class="car-describtion">{{Rentcar.Describtion}}</p>
+        </div><br>
+        <div class="brandN">
+            <p class="brand-name">Brand : </p>
+            <p class="car-brand">{{Rentcar.brand}}</p>
+        </div><br> 
+        <div class="typeN">
+            <p class="type-name">Type : </p>
+            <p class="car-type">{{Rentcar.type}}</p>
+        </div><br>
+        <div class="modelyearN">
+            <p class="modelyear-name">Model year : </p>
+            <p class="car-model_year">{{Rentcar.model_year}}</p>
+        </div><br>
+        <div class="transmissionN">
+            <p class="transmission-name">Transmission Type : </p>
+            <p class="car-transmission_type">{{Rentcar.transmission_type}}</p>
+        </div><br>
+        <div class="colorN">
+            <p class="color-name">Color : </p>
+            <p class="car-color">{{Rentcar.color}}</p>
+        </div><br>
+        <div class="fuelN">
+            <p class="fuel-name">Fuel : </p>
+            <p class="car-fuel">{{Rentcar.fuel}}</p>
+        </div><br>
+        <div class="ownerN">
+            <p class="owner-name">Owner name : </p>
+            <p class="car-ownername">{{Rentcar.owner_name}}</p>
+        </div><br>
+        <div class="phoneN">
+            <p class="phone-name">Owner phone number : </p>
+            <p class="car-ownerphonenumber">{{Rentcar.owner_phonenumber}}</p>
+        </div><br>
+        <div class="addressN">
+            <p class="address-name">Address : </p>
+            <p class="car-address">{{Rentcar.address}}</p>
+        </div><br>
+        <div class="dateN">
+            <p class="date-name">Created date : </p>
+            <p class="car-createddate">{{Rentcar.createddate}}</p>
+        </div><br>
+    </div><br><br><br><br>
+</body>
+{% endblock content %}

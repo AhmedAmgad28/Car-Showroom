@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <title>New Cars</title>
+    <div class="wrapper">
+        <div class="content-wrapper">
+            <div class="wr">
+                <div class="wra">
+                <h1>New Cars</h1>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+</head>
+<body>
+    <div class="main-container">
+        <div class="cards">
+          <div class="card-search-filter">
+            <div class="search">
+                <form method="GET" action={% url 'newcars' %} class="search-box">
+                    <input class="searchbox" name="search_name" type="search" placeholder="Search by Ad Title" aria-label="Search">
+                    <input class="searchbutton" type="submit" value="Search" />
+                </form>
+            </div>
+            <div>
+
+            </div> 
+        </div><br><br>
+          {% for x in Ncars %}
+            <div class="card">
+                <a href="{% url 'newcar' x.id %}" class="card-body">
+                  <img class="carimg" src="{{x.image.url}}" alt="New car image">
+                  <div class="car-info">
+                      <h3 class="car-title">
+                        {{x.ad_title}} 
+                    </h3><br><br><br>
+                    <div class="tags">
+                      <span class="tag">
+                        <small>{{x.brand}}</small>
+                      </span>
+                      <span class="tag">
+                        <small>{{x.type}}</small>
+                      </span>
+                      <span class="tag">
+                          <small>{{x.transmission_type}}</small>
+                        </span>
+                      <span class="tag">
+                        <small>{{x.color}}</small>
+                      </span>
+                      <span class="tag">
+                        <small>{{x.model_year}}</small>
+                      </span>
+                    </div><br><br>
+                    <p class="car-price">
+                      {{x.price}} EGP
+                    </p><br>
+                    <p class="dateofad">Added on: 
+                      {{x.createddate}}
+                    </p>
+                </div> 
+              </a>
+          </div><br><br>
+          {% endfor %}
+      </div><br><br>
+  </div><br><br><br> <br>
+</body>
+{% endblock content %}

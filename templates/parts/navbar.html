@@ -1,0 +1,19 @@
+{% load static %}
+<link rel= "stylesheet" href="{% static 'css/style.css' %}">
+<body>
+    <nav> 
+        <h1> <a class ="non" href="{% url 'home' %}"> Car Showroom </a> </h1>
+        <ul>         
+            <li> <a class= "g" href="{% url 'home' %}">Home</a>
+            </li> 
+            <li><a class= "h" href="{% url 'newcars' %}">New Cars</a>
+            </li>  
+            <li><a class= "k" href="{% url 'usedcars' %}">Used Cars</a>
+            </li> 
+            <li><a class= "l" href="{% url 'rentcars' %}">Rent Cars</a>
+            </li> 
+            <li><a class= "white" href="{% url 'sell' %}">Sell your car</a>
+            </li>                           
+        </ul>                   
+    </nav>
+</body>

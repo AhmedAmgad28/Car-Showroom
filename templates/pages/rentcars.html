@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <title>Rent Cars</title>
+    <div class="wrapper">
+        <div class="content-wrapper">
+            <div class="wra">
+                <div class="wr">
+                <h1>Rent Cars</h1>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+</head>
+<body>
+    <div class="main-container">
+        <div class="cards">
+          <div class="card-search-filter">
+              <div class="search">
+                  <form method="GET" action={% url 'rentcars' %} class="search-box">
+                      <input class="searchbox" name="search_name" type="search" placeholder="Search by Ad Title" aria-label="Search">
+                      <input class="searchbutton" type="submit" value="Search" />
+                  </form>
+              </div>
+              <div>
+
+              </div> 
+          </div><br><br>
+            {% for z in Rcars %}
+            <div class="card">
+                <a href="{% url 'rentcar' z.id %}" class="card-body">
+                  <img class="carimg" src="{{z.image.url}}" alt="Rent car image">
+                  <div class="car-info">
+                      <h3 class="car-title">
+                        {{z.ad_title}} 
+                      </h3><br><br><br>
+                      <div class="tags">
+                        <span class="tag">
+                          <small>{{z.brand}}</small>
+                        </span>
+                        <span class="tag">
+                          <small>{{z.type}}</small>
+                        </span>
+                        <span class="tag">
+                            <small>{{z.transmission_type}}</small>
+                          </span>
+                        <span class="tag">
+                          <small>{{z.color}}</small>
+                        </span>
+                      </div><br><br>
+                      <p class="rental-price">
+                        {{z.price}} EGP per Day
+                      </p><br>
+                      <p class="dateofad">Added on: 
+                        {{z.createddate}}
+                      </p>
+                  </div> 
+                </a>
+            </div><br><br>
+            {% endfor %}
+        </div><br><br>
+    </div><br><br><br><br>
+</body>
+{% endblock content %}
