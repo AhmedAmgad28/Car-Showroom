@@ -94,6 +94,16 @@ footer {
     color:blanchedalmond;
     text-decoration: none;
 }
+.footer_links_page{
+    text-align: center;
+    margin: auto;
+    padding: 30px 0;
+    color: blanchedalmond;
+    font-size: 24px;
+}
+.titleNfooter{
+    color: blanchedalmond;
+}
 
 
 
@@ -146,13 +156,24 @@ footer {
     justify-content: space-between;
 }
 .search{
-    display: inline-block;
+    
     width:40%;
     border-radius: 20px;
     margin: auto;
     position: relative;
     bottom: 15px;
     left:20px;
+    float: left;
+}
+.filter{
+    
+    width:40%;
+    border-radius: 20px;
+    margin: auto;
+    position: relative;
+    bottom: 15px;
+    left:40px;
+    float: right;
 }
 .search-box{
     background-color:rgba(255, 255, 255, 0.968);
@@ -182,6 +203,9 @@ footer {
     position: relative;
     right:10px;
     font-weight: 700;
+}
+.searchbutton:hover{
+    cursor:pointer;
 }
 .card{
     width: 90%;
@@ -355,4 +379,58 @@ footer {
 }
 
 
-
+.car_detail{
+    width: 50%;
+    height:20px;
+    background: blanchedalmond;
+    border-radius: 20px;
+    margin: auto;
+    padding: 20px 0;
+    justify-content: space-between;
+}
+.car_detailbig{
+    width: 50%;
+    height:60px;
+    background: blanchedalmond;
+    border-radius: 20px;
+    margin: auto;
+    padding: 20px 0;
+    justify-content: space-between;
+}
+.car_detailimg{
+    width: 80%;
+    height:400px;
+    background: blanchedalmond;
+    border-radius: 20px;
+    margin: auto;
+    padding: 20px 0;
+    justify-content: space-between;
+    align-content: center;
+}
+.carimgN{
+    width: 80%;
+    height: 390px;
+    padding-left: 75px;
+}
+.detailhead{
+    padding-left: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(39, 57, 90);
+}
+.detailtail{
+    padding-left: 250px;
+    margin-top: -25px;
+    font-size: 18px;
+    color: rgb(39, 57, 90);
+}
+.detailtailbig{
+    padding-left: 200px;
+    margin-top: -25px;
+    font-size: 18px;
+    color: rgb(39, 57, 90);
+}
+.modifybuttons{
+    padding-left: 410px;
+    font-size: 20px;
+}

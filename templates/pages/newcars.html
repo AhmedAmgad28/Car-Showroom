@@ -23,9 +23,12 @@
                     <input class="searchbutton" type="submit" value="Search" />
                 </form>
             </div>
-            <div>
-
-            </div> 
+            <!--<div class="filter">
+                <form method="GET" action={% url 'newcars' %} class="search-box">
+                  <input class="searchbox" name="brand_filter" type="search" placeholder="Filter by Brands" aria-label="Filter">
+                  <input class="searchbutton" type="submit" value="Filter" />
+                </form>
+          </div>-->
         </div><br><br>
           {% for x in Ncars %}
             <div class="card">

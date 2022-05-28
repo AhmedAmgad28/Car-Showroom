@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <title>Update your car</title>
+    <div class="wrapper">
+        <div class="content-wrapper">
+            <div class="wra">
+                <div class="wr">
+                <h1>Update Your Car</h1>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+</head>
+<body>
+    <div class="main-container">
+        <div class="cards">
+            <div class="fill">
+                <h2><u>Update Your Used Car :</u></h2>
+            </div>
+            <form method="POST" enctype="multipart/form-data" >
+                {% csrf_token %}
+                <div class="fr">
+                    {{form}}
+                    <input class="button" type="Submit" value="Update">
+                </div> 
+            </form>
+        </div><br><br>
+    </div><br><br><br><br>
+</body>
+{% endblock content %}

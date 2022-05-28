@@ -19,13 +19,16 @@
           <div class="card-search-filter">
               <div class="search">
                   <form method="GET" action={% url 'usedcars' %} class="search-box">
-                      <input class="searchbox" name="search_name" type="search" placeholder="Search by Ad Title" aria-label="Search">
+                      <input class="searchbox" name="search_name" type="search" placeholder="  Search by Ad Title" aria-label="Search">
                       <input class="searchbutton" type="submit" value="Search" />
                   </form>
               </div>
-              <div>
-
-              </div> 
+              <!--<div class="filter">
+                <form method="GET" action={% url 'newcars' %} class="search-box">
+                  <input class="searchbox" name="brand_filter" type="search" placeholder="Filter by Brands" aria-label="Filter">
+                  <input class="searchbutton" type="submit" value="Filter" />
+                </form>
+              </div>-->
           </div><br><br>
             {% for x in Ucars %}
             <div class="card">

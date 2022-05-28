@@ -1,5 +1,5 @@
-from django.shortcuts import render,redirect
-from .models import BrandLogos, NewCar,UsedCar,RentCar
+from django.shortcuts import render,redirect,get_object_or_404
+from .models import *
 from .forms import UsedCarsForm
 # Create your views here.
 def home(request):
@@ -36,7 +36,7 @@ def usedcars(request):
         if title:
             search = search.filter(ad_title__icontains=title)
     context={
-        'Ucars':search
+        'Ucars':search 
     }
     return render(request,'pages/usedcars.html',context)
 
@@ -77,3 +77,27 @@ def rentcar(request,id):
         'Rentcar':car_id
     }
     return render(request,'pages/singlerent.html',context)
+
+def update(request,id):
+    car_id = UsedCar.objects.get(id=id)
+    if request.method == 'POST':
+        UsedCarsData=UsedCarsForm(request.POST,request.FILES,instance=car_id)
+        if UsedCarsData.is_valid():
+            UsedCarsData.save()
+            return redirect('usedcars')
+    else:
+        UsedCarsData = UsedCarsForm(instance=car_id)
+    context={
+        'form':UsedCarsData,
+    }
+    return render(request,'pages/updateusedcar.html',context)
+
+def delete(request,id):
+    usedcar_delete = get_object_or_404(UsedCar, id=id)
+    if request.method == 'POST':
+        usedcar_delete.delete()
+        return redirect('/')
+    return render(request,'pages/deleteusedcar.html')
+
+def footer(request):
+    return render(request,'pages/footerLinks.html')

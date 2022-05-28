@@ -10,4 +10,7 @@ urlpatterns = [
     path('used/<int:id>',views.usedcar,name='usedcar'),
     path('rent/<int:id>',views.rentcar,name='rentcar'),
     path('rentcars',views.rentcars,name='rentcars'),
+    path('update/<int:id>',views.update,name='update'),
+    path('delete/<int:id>',views.delete,name='delete'),
+    path('extra',views.footer,name='footerLinks'),
 ]

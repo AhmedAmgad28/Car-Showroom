@@ -10,13 +10,13 @@ Type_list=[
 Transmition_list=[
         ('Manual','Manual'),('Automatic','Automatic'),
     ]
-Brand_list=[
+"""Brand_list=[
         ('Audi','Audi'),('BMW','BMW'),('BYD','BYD'),('Chery','Chery'),('Chevrolet','Chevrolet'),('Citroën','Citroën'),
         ('Daewoo','Daewoo'),('Dodge','Dodge'),('Ferrari','Ferrari'),('Fiat','Fiat'),('Ford','Ford'),('Geely','Geely'),
         ('Honda','Honda'),('Hyundai','Hyundai'),('Jeep','Jeep'),('Kia','Kia'),('Lada','Lada'),('Land Rover','Land Rover'),
         ('Mercedes','Mercedes'),('MG','MG'),('Nissan','Nissan'),('Opel','Opel'),('Peugeot','Peugeot'),('Porsche','Porsche'),('Renault','Renault'),
         ('Skoda','Skoda'),('Speranza','Speranza'),('Toyota','Toyota'),('Volvo','Volvo'),('Other','Other'),
-    ]
+    ]"""
 Fuel_list=[
         ('Gas','Gas'),('Diesel','Diesel'),('Natural Gas','Natural Gas'),('Electric','Electric'),
     ]
@@ -28,12 +28,17 @@ Model_Year_list=[
         ('1998','1998'),('1997','1997'),('1996','1996'),('1995','1995'),('Older than 1995','Older tahn 1995'),
     ]
 
+class BrandL(models.Model):
+    brandname=models.CharField(max_length=20)
+    def __str__(self):
+        return self.brandname
+
 class NewCar(models.Model):
     ad_title=models.CharField(max_length=20,verbose_name='Title',unique=True)
     Describtion=models.TextField(null=True,blank=True,verbose_name='Describtion')
     price=models.DecimalField(max_digits=8,decimal_places=2)
     type=models.CharField(max_length=20,choices=Type_list)
-    brand=models.CharField(max_length=20,choices=Brand_list)
+    brand=models.ForeignKey(BrandL,on_delete=models.PROTECT,null=True,blank=True)
     transmission_type=models.CharField(max_length=20,choices=Transmition_list)
     CC=models.IntegerField()
     model_year=models.CharField(max_length=20,choices=Model_Year_list)
@@ -53,7 +58,7 @@ class UsedCar(models.Model):
     owner_phonenumber=models.CharField(max_length=11,verbose_name='Owner Phone Number')
     price=models.DecimalField(max_digits=8,decimal_places=2)
     type=models.CharField(max_length=20,choices=Type_list)
-    brand=models.CharField(max_length=20,choices=Brand_list)
+    brand=models.ForeignKey(BrandL,on_delete=models.PROTECT,null=True,blank=True)
     transmission_type=models.CharField(max_length=20,choices=Transmition_list)
     CC=models.IntegerField()
     model_year=models.CharField(max_length=20,choices=Model_Year_list)
@@ -76,7 +81,7 @@ class RentCar(models.Model):
     owner_phonenumber=models.CharField(max_length=11,verbose_name='Owner Phone Number')
     price=models.DecimalField(max_digits=8,decimal_places=2)
     type=models.CharField(max_length=20,choices=Type_list)
-    brand=models.CharField(max_length=20,choices=Brand_list)
+    brand=models.ForeignKey(BrandL,on_delete=models.PROTECT,null=True,blank=True)
     transmission_type=models.CharField(max_length=20,choices=Transmition_list)
     model_year=models.CharField(max_length=20,choices=Model_Year_list)
     fuel=models.CharField(max_length=20,choices=Fuel_list)
@@ -88,8 +93,3 @@ class RentCar(models.Model):
 
     def __str__(self):
         return self.ad_title
-
-
-class BrandLogos(models.Model):
-    image=models.ImageField(upload_to='photos',default='image/default car.png',verbose_name='Logo')
-    website=models.CharField(max_length=50,verbose_name='website',null=True,blank=True)
