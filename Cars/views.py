@@ -21,7 +21,7 @@ def newcars(request):
         if title:
             search = search.filter(ad_title__icontains=title)
     context={
-        'Ncars':search
+        'Ncars':search.filter(active=True)
     }
     return render(request,'pages/newcars.html',context)
 
@@ -41,7 +41,7 @@ def usedcars(request):
         if title:
             search = search.filter(ad_title__icontains=title)
     context={
-        'Ucars':search 
+        'Ucars':search.filter(active=True) 
     }
     return render(request,'pages/usedcars.html',context)
 
@@ -74,7 +74,7 @@ def rentcars(request):
         if title:
             search = search.filter(ad_title__icontains=title)
     context={
-        'Rcars':search
+        'Rcars':search.filter(active=True)
     }
     return render(request,'pages/rentcars.html',context)
 
@@ -105,7 +105,7 @@ def delete(request,id):
     usedcar_delete = get_object_or_404(UsedCar, id=id)
     if request.method == 'POST':
         usedcar_delete.delete()
-        return redirect('/')
+        return redirect('usedcars')
     return render(request,'pages/deleteusedcar.html')
 
 #Footer links 

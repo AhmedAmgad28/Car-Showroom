@@ -44,6 +44,8 @@ class NewCar(models.Model):
     
     def __str__(self):
         return self.ad_title
+    class Meta:
+        ordering = ['-price']
 
 class UsedCar(models.Model):
     ad_title=models.CharField(max_length=20,verbose_name='Title',unique=True)
@@ -69,6 +71,8 @@ class UsedCar(models.Model):
 
     def __str__(self):
         return self.ad_title
+    class Meta:
+        ordering = ['-model_year']
 
 class RentCar(models.Model):
     ad_title=models.CharField(max_length=20,verbose_name='Title',unique=True)
@@ -89,3 +93,5 @@ class RentCar(models.Model):
 
     def __str__(self):
         return self.ad_title
+    class Meta:
+        ordering = ['-model_year']
