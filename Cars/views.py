@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect,get_object_or_404
 from .models import *
 from .forms import UsedCarsForm
 # Create your views here.
+
+#HOME PAGE
 def home(request):
     cars={
         'Ucars':UsedCar.objects.all(),
@@ -9,6 +11,7 @@ def home(request):
     }
     return render(request,'pages/home.html',cars)
 
+#New Car Pages(list-single car)
 def newcars(request):
     search=NewCar.objects.all()
     title=None
@@ -28,6 +31,7 @@ def newcar(request,id):
     }
     return render(request,'pages/singlenewcar.html',context)
 
+#Used Car Pages(list-single car)
 def usedcars(request):
     search=UsedCar.objects.all()
     title=None
@@ -47,6 +51,7 @@ def usedcar(request,id):
     }
     return render(request,'pages/singleusedcar.html',context)
 
+#Sell form
 def sell(request):
     context = {
         'usedcars':UsedCar.objects.all(),
@@ -59,6 +64,7 @@ def sell(request):
             return redirect('usedcars')
     return render(request,'pages/sellyourcar.html', context)
 
+#Rental Car Pages(list-single car)
 def rentcars(request):
     search=RentCar.objects.all()
     title=None
@@ -78,6 +84,7 @@ def rentcar(request,id):
     }
     return render(request,'pages/singlerent.html',context)
 
+#Update used car
 def update(request,id):
     car_id = UsedCar.objects.get(id=id)
     if request.method == 'POST':
@@ -92,6 +99,7 @@ def update(request,id):
     }
     return render(request,'pages/updateusedcar.html',context)
 
+#Delete used car
 def delete(request,id):
     usedcar_delete = get_object_or_404(UsedCar, id=id)
     if request.method == 'POST':
@@ -99,5 +107,6 @@ def delete(request,id):
         return redirect('/')
     return render(request,'pages/deleteusedcar.html')
 
+#Footer links 
 def footer(request):
     return render(request,'pages/footerLinks.html')
