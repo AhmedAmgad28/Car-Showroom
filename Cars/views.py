@@ -8,6 +8,7 @@ def home(request):
     cars={
         'Ucars':UsedCar.objects.all(),
         'Ncars':NewCar.objects.all(),
+        'Rcars':RentCar.objects.all()
     }
     return render(request,'pages/home.html',cars)
 
