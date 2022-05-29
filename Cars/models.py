@@ -10,13 +10,6 @@ Type_list=[
 Transmition_list=[
         ('Manual','Manual'),('Automatic','Automatic'),
     ]
-"""Brand_list=[
-        ('Audi','Audi'),('BMW','BMW'),('BYD','BYD'),('Chery','Chery'),('Chevrolet','Chevrolet'),('Citroën','Citroën'),
-        ('Daewoo','Daewoo'),('Dodge','Dodge'),('Ferrari','Ferrari'),('Fiat','Fiat'),('Ford','Ford'),('Geely','Geely'),
-        ('Honda','Honda'),('Hyundai','Hyundai'),('Jeep','Jeep'),('Kia','Kia'),('Lada','Lada'),('Land Rover','Land Rover'),
-        ('Mercedes','Mercedes'),('MG','MG'),('Nissan','Nissan'),('Opel','Opel'),('Peugeot','Peugeot'),('Porsche','Porsche'),('Renault','Renault'),
-        ('Skoda','Skoda'),('Speranza','Speranza'),('Toyota','Toyota'),('Volvo','Volvo'),('Other','Other'),
-    ]"""
 Fuel_list=[
         ('Gas','Gas'),('Diesel','Diesel'),('Natural Gas','Natural Gas'),('Electric','Electric'),
     ]
@@ -30,6 +23,7 @@ Model_Year_list=[
 
 class BrandL(models.Model):
     brandname=models.CharField(max_length=20)
+    
     def __str__(self):
         return self.brandname
 
@@ -47,6 +41,7 @@ class NewCar(models.Model):
     image=models.ImageField(upload_to='photos',default='image/default car.png',verbose_name='Photo')
     active=models.BooleanField(default=True)
     createddate=models.DateTimeField(default=datetime.now,verbose_name='Created Date')
+    
     def __str__(self):
         return self.ad_title
 
@@ -74,6 +69,7 @@ class UsedCar(models.Model):
 
     def __str__(self):
         return self.ad_title
+
 class RentCar(models.Model):
     ad_title=models.CharField(max_length=20,verbose_name='Title',unique=True)
     Describtion=models.TextField(null=True,blank=True,verbose_name='Describtion')

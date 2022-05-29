@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <head>
-  <title>New Cars</title>
+  <title>{{Usedcar.ad_title}}</title>
     <div class="wrapper">
         <div class="content-wrapper">
             <div class="wr">
@@ -29,10 +29,12 @@
                 <p class="detailhead"> Travelled KM : </p>
                 <p class="detailtail">{{Usedcar.travelled_KM}} KM</p>
             </div><br>
-            <div class="car_detailbig">
-                <p class="detailhead"> Describtion : </p>
-                <p class="detailtailbig">{{Usedcar.Describtion}}</p>
-            </div><br>
+            {% if Usedcar.Describtion %}
+                <div class="car_detailbig">
+                    <p class="detailhead"> Describtion : </p>
+                    <p class="detailtailbig">{{Usedcar.Describtion}}</p>
+                </div><br>
+            {% endif %}
             <div class="car_detail">
                 <p class="detailhead"> Brand : </p>
                 <p class="detailtail">{{Usedcar.brand}}</p>

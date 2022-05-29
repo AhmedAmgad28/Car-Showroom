@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <head>
-  <title>Rent a Car</title>
+  <title>{{Rentcar.ad_title}}</title>
     <div class="wrapper">
         <div class="content-wrapper">
             <div class="wr">
@@ -25,10 +25,12 @@
                 <p class="detailhead"> Price Per Day : </p>
                 <p class="detailtail">{{Rentcar.price}} EGP</p>
             </div><br>
-            <div class="car_detailbig">
-                <p class="detailhead"> Describtion : </p>
-                <p class="detailtailbig">{{Rentcar.Describtion}}</p>
-            </div><br>
+            {% if Rentcar.Describtion %}
+                <div class="car_detailbig">
+                    <p class="detailhead"> Describtion : </p>
+                    <p class="detailtailbig">{{Rentcar.Describtion}}</p>
+                </div><br>
+            {% endif %}
             <div class="car_detail">
                 <p class="detailhead"> Brand : </p>
                 <p class="detailtail">{{Rentcar.brand}}</p>
